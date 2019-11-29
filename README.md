@@ -1,5 +1,5 @@
 # Advent of code 2019
-...
+Fun challenge, see [AoC](https://adventofcode.com).
 
 ## Run
 All days

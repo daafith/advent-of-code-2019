@@ -9,26 +9,16 @@ object DayRunner {
     private val reflections = Reflections("days")
 
     @JvmStatic
-    fun main(args: Array<String>) {
-        when {
-            args.isNotEmpty() -> {
-                runDay(args)
-            }
-            else -> {
-                runDays()
-            }
-        }
+    fun main(args: Array<String>) = when {
+        args.isNotEmpty() -> runDay(args)
+        else -> runDays()
     }
 
     private fun runDays() {
         val ds = allDays()
         when {
-            ds != null -> {
-                ds.forEach { printDay(it) }
-            }
-            else -> {
-                System.err.println("Days not found")
-            }
+            ds != null -> ds.forEach { printDay(it) }
+            else -> System.err.println("Days not found")
         }
     }
 
@@ -38,12 +28,8 @@ object DayRunner {
 
         val day = allDays()?.find { it.simpleName.endsWith(dayToRun.toString().padStart(2, '0')) }
         when {
-            day != null -> {
-                printDay(day)
-            }
-            else -> {
-                System.err.println("Day $dayToRun not found")
-            }
+            day != null -> printDay(day)
+            else -> System.err.println("Day $dayToRun not found")
         }
     }
 
