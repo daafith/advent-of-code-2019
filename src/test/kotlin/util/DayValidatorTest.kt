@@ -19,8 +19,8 @@ class DayValidatorTest {
     @Test
     fun shouldRejectDaysOutOfRange() {
         assertAll(
-            { assertThrows(RuntimeException::class.java) { DayValidator.validateDay(0) } },
-            { assertThrows(RuntimeException::class.java) { DayValidator.validateDay(26) } }
+            { assertThrows(AdventException::class.java) { DayValidator.validateDay(0) } },
+            { assertThrows(AdventException::class.java) { DayValidator.validateDay(26) } }
         )
     }
 
