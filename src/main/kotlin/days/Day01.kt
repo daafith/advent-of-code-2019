@@ -6,18 +6,20 @@ class Day01 : Day(1) {
         return inputAsList.map { calculateRequiredFuel(it.toInt()) }.sum()
     }
 
+    override fun partTwo(): Any {
+        return inputAsList.map { calculateRequiredFuelIncludingItsOwnMass(it.toInt()) }.sum()
+    }
+
     fun calculateRequiredFuel(mass: Int) : Int {
         return mass / 3 - 2
     }
 
     fun calculateRequiredFuelIncludingItsOwnMass(mass: Int) : Int {
         val fuel = calculateRequiredFuel(mass)
-        if (fuel <= 0) return 0
-        return fuel + calculateRequiredFuelIncludingItsOwnMass(fuel)
-    }
-
-    override fun partTwo(): Any {
-        return inputAsList.map { calculateRequiredFuelIncludingItsOwnMass(it.toInt()) }.sum()
+        return when {
+            fuel <= 0 -> 0
+            else -> fuel + calculateRequiredFuelIncludingItsOwnMass(fuel)
+        }
     }
 
 }
