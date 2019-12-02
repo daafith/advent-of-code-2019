@@ -30,13 +30,13 @@ class Day02 : Day(2) {
     }
 
     @Throws(IllegalArgumentException::class)
-    private fun reverseOutput(code: List<Int>): Int {
+    private fun reverseOutput(codes: List<Int>): Int {
         val target = 19_690_720
         val upperBound = 100
         (0 until upperBound).forEach { noun ->
             (0 until upperBound).forEach { verb ->
                 when (target) {
-                    restoreComputerState(code, noun, verb) -> return upperBound * noun + verb
+                    restoreComputerState(codes, noun, verb) -> return upperBound * noun + verb
                 }
             }
         }
