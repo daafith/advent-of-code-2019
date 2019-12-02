@@ -39,8 +39,10 @@ object DayRunner {
 
     private fun printDay(dayClass: Class<out Day>) {
         val day = dayClass.constructors[0].newInstance() as Day
+        println("Day ${day.javaClass.simpleName.drop(3)}")
         println("Part 1: ${day.partOne()}")
         println("Part 2: ${day.partTwo()}")
+        println()
     }
 
 }
