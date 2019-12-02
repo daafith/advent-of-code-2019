@@ -20,6 +20,4 @@ class Day01Test {
         assertThat(Day01().calculateRequiredFuelIncludingItsOwnMass(100756)).isEqualTo(50346)
     }
 
-
-
 }
